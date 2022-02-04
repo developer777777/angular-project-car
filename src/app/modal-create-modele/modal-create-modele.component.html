@@ -1,0 +1,24 @@
+<form #form="ngForm" (ngSubmit)="save(form.value)">
+  <div class="modal-header">
+    <h5 class="modal-title" id="exampleModalLabel">Add Modele</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="activeModal.dismiss('Cross click')"></button>
+  </div>
+  <div class="modal-body">
+      <div class="row">
+        <div class="col">
+          <label class="col-form-label">*Libelle:</label>
+          <input type="text" name="libelle" class="form-control" ngModel required>
+        </div>
+        <div class="col">
+          <label for="inputState" class="form-label">*Marques</label>
+          <select id="inputState" name="marque_id" class="form-select" ngModel required>
+            <option *ngFor='let m of marques' value="{{m.id}}">{{m.libelle}}</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="activeModal.dismiss('Cross click')">Close</button>
+      <button type="submit" class="btn btn-primary" [disabled]="form.invalid">Save</button>
+    </div>
+  </form>

@@ -1,0 +1,46 @@
+<form #form="ngForm" (ngSubmit)="update()">
+  <div class="modal-header">
+    <h5 class="modal-title" id="exampleModalLabel">Edit Cars</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="activeModal.dismiss('Cross click')"></button>
+  </div>
+    <div class="modal-body">
+      <div class="row">
+        <div class="col">
+          <label class="col-form-label">*matricule:</label>
+          <input type="text" name="matricule" class="form-control" [(ngModel)] = 'car.matricule' required>
+        </div>
+        <div class="col">
+          <label class="col-form-label">*numero cartegrise:</label>
+          <input type="text" name="numCartegrise" class="form-control" [(ngModel)] = 'car.numCartegrise' required>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <label class="col-form-label">*color:</label>
+          <input type="text" name="color" class="form-control" [(ngModel)] = 'car.color' required>
+        </div>
+        <div class="col">
+          <label class="col-form-label">*Date aquisition:</label>
+          <input type="date" name="dateAquisition" class="form-control" [(ngModel)] = 'car.dateAquisition' required>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <label for="inputState" class="form-label">*Marques</label>
+          <select (change)="onSelect($event)" id="inputState" name="marque_id" class="form-select" [(ngModel)] = 'car.marque.id' required>
+            <option *ngFor='let m of marques ' value="{{m.id}}">{{m.libelle}}</option>
+          </select>
+        </div>
+        <div class="col">
+          <label for="inputState" class="form-label">*Modeles</label>
+          <select (change)="getSelect($event)" id="inputState" name="modele_id" class="form-select" [(ngModel)] = 'car.modele_id' required>
+            <option *ngFor='let m of modeles' value="{{m.id}}">{{m.libelle}}</option>
+          </select>
+        </div>
+      </div>
+      </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" (click)="activeModal.dismiss('Cross click')">Close</button>
+      <button type="submit" class="btn btn-primary" [disabled]="form.invalid">Save</button>
+    </div>
+  </form>

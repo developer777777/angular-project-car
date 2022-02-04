@@ -1,0 +1,36 @@
+
+  <br>
+  <h3 class="h3 text-uppercase" style="color: black;text-decoration: underline;text-align: center;">List Of Cars</h3>
+    <button class="btn btn-outline-success btn-sm" (click)="addCars()">New Cars</button>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Matricule</th>
+        <th scope="col">Numero Cartegrise</th>
+        <th scope="col">Couleur</th>
+        <th scope="col">Date Aquisition</th>
+        <th scope="col">Modele</th>
+        <th scope="col">Marque</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor='let c of cars'>
+        <th scope="row">{{c.id}}</th>
+        <td>{{c.matricule}}</td>
+        <td>{{c.numCartegrise}}</td>
+        <td>{{c.color}}</td>
+        <td>{{c.dateAquisition}}</td>
+        <td>{{c.libelleModele}}</td>
+        <td>{{c.libelleMarque}}</td>
+        <td>
+          <div class="d-grid gap-2 d-md-block">
+            <button class="btn btn-outline-success btn-sm" (click)="editCar(c)">Edit</button>&nbsp;
+            <button class="btn btn-outline-danger btn-sm" (click)="deleteCar(c)">Delete</button>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+

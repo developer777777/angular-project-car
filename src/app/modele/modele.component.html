@@ -1,0 +1,31 @@
+
+  <br>
+  <h3 class="h3 text-uppercase" style="color: black;text-decoration: underline;text-align: center;">List Of Models</h3>
+    <button class="btn btn-outline-success btn-sm" (click)="addModele()">New model</button>
+  <div class="col align-self-center">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Libelle</th>
+        <th scope="col">Marque</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor='let m of modeles'>
+        <th scope="row">{{m.id}}</th>
+        <td>{{m.libelle}}</td>
+        <td>{{m.marque.libelle}}</td>
+        <td>
+          <div class="d-grid gap-2 d-md-block">
+            <button class="btn btn-outline-success btn-sm" (click)="editModele(m)">Edit</button>&nbsp;
+            <button class="btn btn-outline-danger btn-sm" (click)="deleteModele(m)">Delete</button>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
